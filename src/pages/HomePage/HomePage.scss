@@ -6,3 +6,17 @@
   background-image: linear-gradient(to left, rgba($color-black, 0.9), rgba($color-black, 1));
   color: white;
 }
+
+.wrapper {
+  display: flex;
+}
+
+.taskList {
+  width: 45%;
+  margin-left: 100px;
+  margin-right: remsize(200);
+}
+
+.authForm {
+  width: 40%;
+}

@@ -5,6 +5,7 @@ import CSSModules from 'react-css-modules';
 
 import TasksList from './TasksList';
 import TaskCreater from './TaskCreater';
+import AuthForm from './AuthForm';
 
 import styles from './HomePage.scss';
 
@@ -13,7 +14,10 @@ const HomePage = () => (
     <Helmet title="Home" />
     <div styleName="root">
       <TaskCreater />
-      <TasksList />
+      <div styleName="wrapper">
+        <TasksList styleName="taskList" />
+        <AuthForm styleName="authForm" />
+      </div>
     </div>
   </Fragment>
 );

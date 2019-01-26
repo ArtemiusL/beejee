@@ -1,7 +1,6 @@
 import {
-  APP_LOADED,
+  AUTH,
   SWITCH_VIEWPORT,
-  FIRST_LOAD_ANIMATED,
 } from './constants/common';
 
 export const switchViewport = viewport => ({
@@ -9,10 +8,6 @@ export const switchViewport = viewport => ({
   payload: { viewport },
 });
 
-export const appLoaded = () => ({
-  type: APP_LOADED,
-});
-
-export const firstLoadAnimated = () => ({
-  type: FIRST_LOAD_ANIMATED,
+export const authUser = () => ({
+  type: AUTH,
 });

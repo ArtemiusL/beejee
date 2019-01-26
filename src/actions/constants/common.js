@@ -1,3 +1,2 @@
-export const APP_LOADED = 'APP_LOADED';
+export const AUTH = 'AUTH';
 export const SWITCH_VIEWPORT = 'SWITCH_VIEWPORT';
-export const FIRST_LOAD_ANIMATED = 'FIRST_LOAD_ANIMATED';

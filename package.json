@@ -250,6 +250,7 @@
     "rc-slider": "^8.6.3",
     "react": "^16.3.2",
     "react-animate-height": "^2.0.4",
+    "react-cookie": "^3.0.8",
     "react-css-modules": "^4.7.7",
     "react-dom": "^16.3.2",
     "react-helmet": "^5.2.0",

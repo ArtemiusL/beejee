@@ -12,10 +12,6 @@ import styles from './TasksList.scss';
 @withTasks
 @CSSModules(styles, { allowMultiple: true })
 class TasksList extends PureComponent {
-  handleClick = () => {
-    console.log('TasksList');
-  }
-
   render() {
     const {
       className,

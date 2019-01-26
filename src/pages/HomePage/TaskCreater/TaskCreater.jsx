@@ -7,12 +7,6 @@ import withCreateTask from '_hocs/withCreateTask';
 
 import styles from './TaskCreater.scss';
 
-const testData = {
-  username: 'Алан',
-  email: 'alan@alan.alan',
-  text: 'Сделать домашку',
-};
-
 @withCreateTask
 @CSSModules(styles, { allowMultiple: true })
 class TaskCreater extends PureComponent {
@@ -46,7 +40,7 @@ class TaskCreater extends PureComponent {
         <form styleName="form" onSubmit={this.handleSubmit}>
           <input
             styleName="input"
-            type="username"
+            type="text"
             id="username"
             placeholder="Username"
             required
@@ -65,7 +59,9 @@ class TaskCreater extends PureComponent {
             placeholder="Text task"
             required
           />
-          <button styleName="btn" type="submit">Создать задачу!</button>
+          <button styleName="btn" type="submit">
+            Create task
+          </button>
         </form>
       </div>
     );

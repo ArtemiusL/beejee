@@ -35,3 +35,4 @@ export const sortDirections = {
 };
 
 export const TASK_PER_PAGE = 3;
+export const IS_AUTH = 'IS_AUTH';

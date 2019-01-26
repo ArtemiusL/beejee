@@ -1,15 +1,27 @@
-import {
-  APP_LOADED,
-  SWITCH_VIEWPORT,
-  FIRST_LOAD_ANIMATED,
-} from '_actionConstants/common';
-import { DESKTOP } from '_constants';
+import { SWITCH_VIEWPORT, AUTH } from '_actionConstants/common';
+import { DESKTOP, IS_AUTH } from '_constants';
 
-const initialState = {
+import { Cookies } from 'react-cookie';
+
+const cookies = new Cookies();
+const isAuth = cookies.get(IS_AUTH) === 'true';
+
+const defaultState = {
   viewport: DESKTOP,
-  isAppLoaded: false,
-  isFirstLoadAnimating: false,
+  isAuth: false,
 };
+
+let initialState;
+
+if (isAuth) {
+  initialState = {
+    ...defaultState,
+    isAuth,
+  };
+} else {
+  cookies.set(IS_AUTH, false);
+  initialState = defaultState;
+}
 
 const common = (state = initialState, action) => {
   const { type, payload } = action;
@@ -18,11 +30,13 @@ const common = (state = initialState, action) => {
     case SWITCH_VIEWPORT:
       return { ...state, ...payload };
 
-    case APP_LOADED:
-      return { ...state, isAppLoaded: true, isFirstLoadAnimating: true };
+    case AUTH:
+      cookies.set(IS_AUTH, true);
 
-    case FIRST_LOAD_ANIMATED:
-      return { ...state, isFirstLoadAnimating: false };
+      return {
+        ...state,
+        isAuth: true,
+      };
 
     default:
       return state;
