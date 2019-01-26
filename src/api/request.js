@@ -2,41 +2,18 @@ import axios from 'axios';
 import config from '_config';
 
 const BASE_URL = `${config.api}/`;
-const STUB_DELAY = 1000;
-const METHODS = ['GET', 'POST'];
 
-const sidedRequest = (opts) => {
-  if (!__SERVER__) {
-    return axios({ baseURL: BASE_URL, headers: { 'Content-Type': 'application/json' }, ...opts });
-  }
+const universalRequest = (url, params, type, method) => (
+  axios({
+    method,
+    url: `${BASE_URL}${url}`,
+    headers: {
+      'Content-Type': type,
+    },
+    data: params,
+  }).catch(error => (error.response.data)));
 
-  return axios({ baseURL: config.remoteApiUrl, ...opts });
-};
+const requestFn = method => (url, params = {}, type = 'multipart/form-data') => universalRequest(url, params, type, method);
 
-export const externalRequest = (externalUrl, opts) =>
-  axios({ url: externalUrl, ...opts });
-
-const stubRequest = (opts) => {
-  const { stubData, stubDelay = STUB_DELAY } = opts;
-
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ data: stubData });
-    }, stubDelay);
-  });
-};
-
-const doRequest = (opts) => {
-  if (opts.stubData) {
-    return stubRequest(opts);
-  }
-
-  return sidedRequest(opts);
-};
-
-const request = METHODS.reduce((req, method) => {
-  req[method] = opts => doRequest({ ...opts, method });
-  return req;
-}, {});
-
-export default request;
+export const getRequest = requestFn('get');
+export const postRequest = requestFn('post');

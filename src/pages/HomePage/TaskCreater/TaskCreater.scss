@@ -1,0 +1,52 @@
+@import '~styles/mixins';
+@import '~styles/variables';
+
+.root {
+  padding-top: remsize(50);
+  margin-bottom: remsize(150);
+}
+
+.title {
+  text-align: center;
+  font-size: remsize(60);
+  font-weight: 700;
+  letter-spacing: get-leter-spacing(100);
+  margin-bottom: remsize(50);
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.input {
+  width: 25%;
+  margin-right: 8%;
+  border-bottom: 1px solid rgba($color-white, 0.6);
+  font-size: remsize(34);
+  line-height: 1.1;
+  padding: 0 remsize(15) remsize(10) remsize(6);
+  color: #fff;
+
+  &:focus {
+    border-bottom: 1px solid rgba($color-white, 1);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: color 9999s ease-out, background-color 9999s ease-out;
+    transition-delay: 9999s;
+  }
+}
+
+.btn {
+  width: remsize(300);
+  flex-shrink: 0;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #fff;
+}

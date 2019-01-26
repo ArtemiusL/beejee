@@ -197,3 +197,7 @@
 @function height-desktop-grid-row($rows: 1) {
   @return calc(#{($desktop-grid-row-rem * $rows)}rem);
 }
+
+@function get-leter-spacing($px) {
+  @return ($px / 1000) + em;
+}
