@@ -4,11 +4,8 @@ export const fetchTasks = () => ({
   type: FETCH_TASKS,
 });
 
-export const setTasks = (payload) => {
-  console.log('пришло в экшн', payload);
-  return ({
-    type: SET_TASKS,
-    payload,
-  });
-};
+export const setTasks = payload => ({
+  type: SET_TASKS,
+  payload,
+});
 

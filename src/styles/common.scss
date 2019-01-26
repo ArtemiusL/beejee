@@ -5,6 +5,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --page-height: 100vh;
+  --cof-size: #{$desktop-font-size};
+  --desktop-width: #{$desktop-width};
+
+  @include media-tablet {
+    --cof-size: #{$tablet-font-size};
+    --desktop-width: #{$tablet-width};
+  }
+
+  @include media-mobile {
+    --cof-size: #{$mobile-font-size};
+    --desktop-width: #{$mobile-width};
+  }
+}
+
 :global(.route-enter) {
   position: absolute;
   width: 100%;

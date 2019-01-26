@@ -1,0 +1,36 @@
+@import '~styles/mixins';
+@import '~styles/variables';
+
+.root {
+  border-bottom: 1px solid $color-white;
+  padding-right: remsize(15);
+  display: flex;
+  align-items: stretch;
+}
+
+.left {
+  width: 20%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid white;
+  padding-top: remsize(20);
+  padding-bottom: remsize(15);
+}
+
+.right {
+  padding-left: remsize(15);
+  padding-top: remsize(20);
+  padding-bottom: remsize(15);
+}
+
+.item {
+  margin-bottom: remsize(10);
+  font-size: remsize(26);
+
+  span {
+    font-size: remsize(30);
+    font-weight: 600;
+  }
+}

@@ -2,31 +2,10 @@
 @import '~styles/mixins';
 
 .root {
-  padding: 0;
-  background-color: white;
   height: 100%;
-}
-
-.slider {
-  height: 150px;
-}
-
-.slide {
-  flex-shrink: 0;
-  width: 200px;
-  height: 100px;
+  background-image: linear-gradient(to left, rgba($color-black, 0.9), rgba($color-black, 1));
+  color: white;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #3dbaed;
-  color: black;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.arrow {
-  display: block;
-  height: 100px;
-  width: 100px;
-  background-color: red;
+  align-items: flex-start;
+  justify-content: flex-start;
 }

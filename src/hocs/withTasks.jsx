@@ -20,7 +20,6 @@ const withTasks = WrappedComponent => {
 
     render() {
       const { fetchArchiveArticles, ...otherProps } = this.props;
-      console.log('items в hoc', this.props.items);
       return this.props.items ? <WrappedComponent {...otherProps} /> : null;
     }
   }

@@ -11,7 +11,6 @@ const initialState = {
 
 const tasks = (state = initialState, action) => {
   const { type, payload } = action;
-  console.log('payload', payload);
 
   switch (type) {
     case SET_TASKS:

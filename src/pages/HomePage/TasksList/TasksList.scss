@@ -1,0 +1,10 @@
+@import '~styles/mixins';
+@import '~styles/variables';
+
+.root {
+  font-style: normal;
+  border: 1px solid $color-white;
+  width: 45%;
+  margin-top: 300px;
+  margin-left: 100px;
+}

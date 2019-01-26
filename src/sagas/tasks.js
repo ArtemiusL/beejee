@@ -15,7 +15,6 @@ export function* fetchTasks() {
     const { data } = yield call(getTasks, page, sortField, sortDirection);
 
     if (data.status === 'ok') {
-      console.log(data, 'data.message', data.message);
       yield put(setTasks(data.message));
     } else {
       console.log(data.status);
