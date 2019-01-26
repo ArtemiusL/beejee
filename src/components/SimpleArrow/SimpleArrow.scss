@@ -1,0 +1,55 @@
+@import '~styles/mixins';
+@import '~styles/media';
+@import '~styles/variables';
+
+.root {
+  fill: none;
+  stroke-miterlimit: 10;
+  stroke-width: 4px;
+  width: 14px;
+  height: 25px;
+}
+
+.theme {
+  &-white {
+    .path {
+      fill: $color-white;
+    }
+  }
+
+  &-black {
+    .path {
+      fill: $color-black;
+    }
+  }
+}
+
+.duration {
+  &-bottom {
+    transform: rotate(90deg);
+  }
+
+  &-top {
+    transform: rotate(-90deg);
+  }
+
+  &-left {
+    transform: rotate(180deg);
+  }
+}
+
+.size {
+  &-small {
+    width: desktop(20);
+    height: desktop(20);
+  }
+}
+
+.tabletSize {
+  &-normal {
+    @include media-tablet {
+      width: remsize(15);
+      height: remsize(17);
+    }
+  }
+}

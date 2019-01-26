@@ -1,4 +1,4 @@
-import { SET_TASKS } from '_actionConstants/tasks';
+import { SET_TASKS, CHANGE_PAGE } from '_actionConstants/tasks';
 import { sortDirections } from '_constants';
 
 const initialState = {
@@ -17,10 +17,15 @@ const tasks = (state = initialState, action) => {
       return {
         ...state,
         items: [
-          ...state.items,
           ...payload.tasks,
         ],
         taskCount: Number(payload.total_task_count),
+      };
+
+    case CHANGE_PAGE:
+      return {
+        ...state,
+        page: payload,
       };
 
 

@@ -1,0 +1,23 @@
+@import '~styles/mixins';
+@import '~styles/variables';
+
+.root {
+  border-right: 1px solid $color-white;
+  text-align: center;
+  width: 10%;
+  padding: remsize(25) 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &.isActive {
+    background-color: rgba($color-white, 0.3);
+  }
+
+  &:last-child {
+    border: none;
+  }
+
+  @include hover-support {
+    background-color: rgba($color-white, 0.3);
+  }
+}

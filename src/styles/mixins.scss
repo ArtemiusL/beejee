@@ -15,6 +15,14 @@
   }
 }
 
+@mixin hover-support {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
 @mixin hover-touch {
   &:active {
     @content;

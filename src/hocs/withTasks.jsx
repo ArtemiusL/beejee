@@ -4,23 +4,38 @@ import { compose, bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchTasks } from '_actions/tasks';
-import { tasksItemsSelector } from '_selectors/tasks';
+import { fetchTasks, changePage } from '_actions/tasks';
+import { tasksSelector } from '_selectors/tasks';
 
 const withTasks = WrappedComponent => {
   class HOC extends Component {
     static propTypes = {
-      items: PropTypes.array,
+      tasks: PropTypes.object,
       fetchTasks: PropTypes.func,
+      changePage: PropTypes.func,
     }
 
     componentDidMount() {
       this.props.fetchTasks();
     }
 
+    componentWillReceiveProps(nextProps) {
+      const { tasks: { page, sortDirection, sortField, items } } = this.props;
+
+      const { tasks: { page: newPage, sortDirection: newSortDirection, sortField: newSortField } } = nextProps;
+
+      if (
+        items.length > 0 &&
+        newPage !== page ||
+        newSortDirection !== sortDirection ||
+        newSortField !== sortField
+      ) {
+        this.props.fetchTasks();
+      }
+    }
+
     render() {
-      const { fetchArchiveArticles, ...otherProps } = this.props;
-      return this.props.items ? <WrappedComponent {...otherProps} /> : null;
+      return this.props.tasks.items ? <WrappedComponent {...this.props} /> : null;
     }
   }
 
@@ -34,12 +49,13 @@ const withTasks = WrappedComponent => {
 };
 
 const mapStateToProps = state => ({
-  items: tasksItemsSelector(state),
+  tasks: tasksSelector(state),
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchTasks,
+    changePage,
   }, dispatch);
 
 export default compose(

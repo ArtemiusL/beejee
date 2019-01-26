@@ -33,3 +33,5 @@ export const sortDirections = {
   asc: 'asc',
   desc: 'desc',
 };
+
+export const TASK_PER_PAGE = 3;

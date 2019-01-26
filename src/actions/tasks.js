@@ -1,4 +1,4 @@
-import { FETCH_TASKS, SET_TASKS } from './constants/tasks';
+import { FETCH_TASKS, SET_TASKS, CHANGE_PAGE } from './constants/tasks';
 
 export const fetchTasks = () => ({
   type: FETCH_TASKS,
@@ -9,3 +9,7 @@ export const setTasks = payload => ({
   payload,
 });
 
+export const changePage = payload => ({
+  type: CHANGE_PAGE,
+  payload,
+});

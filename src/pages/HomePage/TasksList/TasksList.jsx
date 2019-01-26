@@ -5,6 +5,7 @@ import CSSModules from 'react-css-modules';
 import withTasks from '_hocs/withTasks';
 
 import Item from './Item';
+import Pagination from './Pagination';
 
 import styles from './TasksList.scss';
 
@@ -16,7 +17,11 @@ class TasksList extends PureComponent {
   }
 
   render() {
-    const { className, items } = this.props;
+    const {
+      className,
+      tasks: { items, page, taskCount },
+      changePage,
+    } = this.props;
 
     return (
       <div className={className} styleName="root">
@@ -29,6 +34,11 @@ class TasksList extends PureComponent {
             status={task.status}
           />
         ))}
+        <Pagination
+          currentPage={page}
+          taskCount={taskCount}
+          changePage={changePage}
+        />
       </div>
     );
   }
