@@ -122,7 +122,8 @@
             "_selectors": "./src/selectors",
             "_utils": "./src/utils",
             "_hocs": "./src/hocs",
-            "_contexts": "./src/contexts"
+            "_contexts": "./src/contexts",
+            "_sagas": "./src/sagas"
           }
         }
       ]

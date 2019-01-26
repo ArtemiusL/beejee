@@ -1,15 +1,16 @@
 module.exports = {
   port: process.env.PORT,
   defaultLocale: 'en',
-  api: 'https://konovalho.ru',
+  api: 'https://uxcandy.com/~shapoval/test-task-backend',
+  developer: 'artem',
   app: {
     htmlAttributes: { lang: 'ru' },
-    title: 'Konovalho',
+    title: 'Beejee task',
     titleTemplate: 'Frontend developer!',
     meta: [
       {
         name: 'description',
-        content: 'Artem Konovalov - Frontend Developer',
+        content: 'Beejee - test task',
       },
     ],
   },

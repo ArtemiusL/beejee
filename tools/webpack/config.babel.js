@@ -224,7 +224,8 @@ module.exports = {
       _selectors: path.resolve(process.cwd(), 'src/selectors'),
       _utils: path.resolve(process.cwd(), 'src/utils'),
       _hocs: path.resolve(process.cwd(), 'src/hocs'),
-      _contexts: path.resolve(process.cwd(), 'src/contexts'), 
+      _contexts: path.resolve(process.cwd(), 'src/contexts'),
+      _sagas: path.resolve(process.cwd(), 'src/sagas'),
     },
     extensions: ['.js', '.jsx', '.json']
   },

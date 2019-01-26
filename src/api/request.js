@@ -1,9 +1,9 @@
 import axios from 'axios';
 import config from '_config';
 
-const BASE_URL = `${config.api}/api/v1`;
+const BASE_URL = `${config.api}/`;
 const STUB_DELAY = 1000;
-const METHODS = ['GET', 'DELETE', 'HEAD', 'POST', 'PUT', 'PATCH'];
+const METHODS = ['GET', 'POST'];
 
 const sidedRequest = (opts) => {
   if (!__SERVER__) {

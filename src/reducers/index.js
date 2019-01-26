@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { reducer as formReducer } from 'redux-form';
 
-import common from './common';
+import tasks from './tasks';
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  form: formReducer,
-  common,
+  tasks,
 });
 
 export default rootReducer;

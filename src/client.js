@@ -9,12 +9,17 @@ import { renderRoutes } from 'react-router-config';
 import appRoutes from './app-routes';
 import getInitialState from '_store/getInitialState';
 import configureStore from '_store';
+import rootSaga from '_sagas';
+
 
 // Get initial state from server-side rendering
 const initialState = getInitialState();
 
 const history = createHistory();
 const store = configureStore(history, initialState);
+
+// Start saga middleware
+store.runSaga(rootSaga);
 
 const renderDom = __DEV__ ? render : hydrate;
 const mountNode = document.getElementById('react-view');

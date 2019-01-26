@@ -3,8 +3,7 @@ import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import CSSModules from 'react-css-modules';
 
-import Text from '_components/Text';
-import Welcome from './Welcome';
+import withTasks from '_hocs/withTasks';
 
 import styles from './HomePage.scss';
 
@@ -12,9 +11,9 @@ const HomePage = () => (
   <Fragment>
     <Helmet title="Home" />
     <div styleName="root">
-      <Welcome />
+      Hello world!
     </div>
   </Fragment>
 );
 
-export default CSSModules(HomePage, styles);
+export default withTasks(CSSModules(HomePage, styles));
