@@ -5,18 +5,23 @@ import CSSModules from 'react-css-modules';
 
 import withTasks from '_hocs/withTasks';
 import withAuth from '_hocs/withAuth';
+import withEditTask from '_hocs/withEditTask';
 
 import Item from './Item';
 import Pagination from './Pagination';
 
 import styles from './TasksList.scss';
 
+@withEditTask
 @withAuth
 @withTasks
 @CSSModules(styles, { allowMultiple: true })
 class TasksList extends PureComponent {
-  handleTextDoubleClick = () => {
+  handleTextDoubleClick = (params) => {
+    const { editTask } = this.props;
+
     console.log('работает');
+    editTask(params);
   }
 
   render() {
@@ -54,6 +59,7 @@ class TasksList extends PureComponent {
 TasksList.propTypes = {
   className: PropTypes.string,
   isAuth: PropTypes.bool,
+  editTask: PropTypes.func,
 };
 
 

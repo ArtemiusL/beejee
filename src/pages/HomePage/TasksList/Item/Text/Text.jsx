@@ -3,11 +3,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
-import withEditTask from '_hocs/withEditTask';
+import { errorMessageForNotLogin } from '_constants';
 
 import styles from './Text.scss';
 
-@withEditTask
 @CSSModules(styles)
 class Text extends PureComponent {
   state = {
@@ -16,16 +15,20 @@ class Text extends PureComponent {
   };
 
   handleDoubleClick = () => {
-    this.setState({
-      isEditing: true,
-    });
+    if (this.props.isAuth) {
+      this.setState({
+        isEditing: true,
+      });
+    } else {
+      alert(errorMessageForNotLogin);
+    }
   }
 
   handleInputBlur = () => {
-    const { id, editTask } = this.props;
+    const { id, onDoubleClick } = this.props;
     const { inputValue } = this.state;
 
-    editTask({
+    onDoubleClick({
       id,
       text: inputValue,
     });
@@ -45,9 +48,7 @@ class Text extends PureComponent {
   render() {
     const {
       className,
-      children,
       value,
-      onDoubleClick,
     } = this.props;
 
     const { isEditing, inputValue } = this.state;

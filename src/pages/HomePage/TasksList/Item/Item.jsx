@@ -17,6 +17,7 @@ const Item = ({
   status,
   onDoubleClickText,
   id,
+  isAuth,
 }) => {
   return (
     <div className={className} styleName="root">
@@ -25,6 +26,7 @@ const Item = ({
           status={status}
           onDoubleClick={onDoubleClickText}
           id={id}
+          isAuth={isAuth}
         />
       </div>
       <div styleName="right">
@@ -40,6 +42,7 @@ const Item = ({
           <span>Text: </span>
           <Text
             value={text}
+            isAuth={isAuth}
             onDoubleClick={onDoubleClickText}
             id={id}
           />

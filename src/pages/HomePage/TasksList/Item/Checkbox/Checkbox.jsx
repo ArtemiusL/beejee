@@ -3,31 +3,35 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
-import withEditTask from '_hocs/withEditTask';
+import { errorMessageForNotLogin } from '_constants';
 
 import styles from './Checkbox.scss';
 
-@withEditTask
 @CSSModules(styles, { allowMultiple: true })
 class Checkbox extends PureComponent {
-  handleChange = (evt) => {
-    const { id, editTask } = this.props;
-    const status = evt.target.checked ? 10 : 0;
+  handleClick = (evt) => {
+    if (this.props.isAuth) {
+      const { id, onDoubleClick } = this.props;
+      const status = evt.target.checked ? 10 : 0;
 
-    editTask({
-      id,
-      status,
-    });
+      onDoubleClick({
+        id,
+        status,
+      });
+    } else {
+      evt.preventDefault();
+      alert(errorMessageForNotLogin);
+    }
   }
 
   render() {
-    const { status } = this.props;
+    const { status, isAuth } = this.props;
 
     return (
       <input
         type="checkbox"
         defaultChecked={Boolean(status)}
-        onChange={this.handleChange}
+        onClick={this.handleClick}
       />
     );
   }

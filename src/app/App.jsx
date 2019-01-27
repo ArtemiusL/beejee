@@ -84,7 +84,6 @@ class App extends Component {
     return (
       <Fragment>
         <RouterTransitionGroup routes={route.routes} timeout={PAGE_TRANSITION} />
-        {/* <RemSize /> */}
       </Fragment>
     );
   }

@@ -11,6 +11,10 @@ import styles from './AuthForm.scss';
 @withAuth
 @CSSModules(styles, { allowMultiple: true })
 class AuthForm extends PureComponent {
+  state = {
+    formError: false,
+  };
+
   handleSubmit = (evt) => {
     evt.preventDefault();
 
@@ -18,8 +22,11 @@ class AuthForm extends PureComponent {
     const { authUser, authPass } = this.getFormObjectFromArray(formValues);
     if (authProcess(authUser, authPass)) {
       this.props.authUser();
+    } else {
+      this.setState({
+        formError: true,
+      });
     }
-
   }
 
   getFormObjectFromArray = (array) => {
@@ -31,8 +38,17 @@ class AuthForm extends PureComponent {
     return myObj;
   }
 
+  handleFocus = () => {
+    if (this.state.formError) {
+      this.setState({
+        formError: false,
+      });
+    }
+  }
+
   render() {
     const { className, isAuth } = this.props;
+    const { formError } = this.state;
 
     return (
       <div className={className} styleName="root">
@@ -55,6 +71,7 @@ class AuthForm extends PureComponent {
                 id="authUser"
                 placeholder="Username"
                 required
+                onFocus={this.handleFocus}
               />
               <input
                 styleName="input"
@@ -62,7 +79,13 @@ class AuthForm extends PureComponent {
                 id="authPass"
                 placeholder="Password"
                 required
+                onFocus={this.handleFocus}
               />
+              {formError && (
+                <div style={{ color: 'red' }}>
+                  Invalid username or password
+                </div>
+              )}
               <button styleName="btn" type="submit">
                 Enter
               </button>
