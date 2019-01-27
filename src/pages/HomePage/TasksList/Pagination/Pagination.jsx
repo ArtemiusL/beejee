@@ -14,17 +14,16 @@ const PAGINATION_COUNT = 6;
 
 @CSSModules(styles, { allowMultiple: true })
 class Pagination extends PureComponent {
-  handleClick = () => {
-    console.log('Pagination');
-  }
-
   generatePagination = () => {
-    const { currentPage } = this.props;
+    const { currentPage, taskCount } = this.props;
+
+    const lastPage = Math.ceil(taskCount / TASK_PER_PAGE);
 
     const paginationArr = [];
     const correctStart = currentPage === 1 ? 2 : currentPage;
+    const checkOnLast = correctStart >= lastPage - PAGINATION_COUNT ? lastPage - PAGINATION_COUNT : correctStart;
 
-    for (let index = correctStart; index < PAGINATION_COUNT + correctStart; index++) {
+    for (let index = checkOnLast; index < PAGINATION_COUNT + checkOnLast; index++) {
       paginationArr.push(index);
     }
 
@@ -32,7 +31,13 @@ class Pagination extends PureComponent {
   }
 
   handleClick = (page) => {
-    this.props.changePage(page);
+    const { currentPage, taskCount } = this.props;
+
+    const lastPage = Math.ceil(taskCount / TASK_PER_PAGE);
+
+    if (page <= lastPage && page > 0 && page !== currentPage) {
+      this.props.changePage(page);
+    }
   }
 
   render() {

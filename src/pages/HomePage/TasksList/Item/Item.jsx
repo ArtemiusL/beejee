@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
 import Text from './Text';
+import Checkbox from './Checkbox';
 
 import styles from './Item.scss';
 
@@ -20,7 +21,11 @@ const Item = ({
   return (
     <div className={className} styleName="root">
       <div styleName="left">
-        <input type="checkbox" defaultChecked={Boolean(status)} />
+        <Checkbox
+          status={status}
+          onDoubleClick={onDoubleClickText}
+          id={id}
+        />
       </div>
       <div styleName="right">
         <div styleName="item">
