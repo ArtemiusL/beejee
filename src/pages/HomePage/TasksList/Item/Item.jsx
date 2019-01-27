@@ -14,6 +14,8 @@ const Item = ({
   username,
   email,
   status,
+  onDoubleClickText,
+  id,
 }) => {
   return (
     <div className={className} styleName="root">
@@ -33,6 +35,8 @@ const Item = ({
           <span>Text: </span>
           <Text
             value={text}
+            onDoubleClick={onDoubleClickText}
+            id={id}
           />
         </div>
       </div>
@@ -42,6 +46,7 @@ const Item = ({
 
 Item.propTypes = {
   className: PropTypes.string,
+  onDoubleClickText: PropTypes.func,
 };
 
 export default CSSModules(Item, styles);
