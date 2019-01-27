@@ -41,6 +41,10 @@
     transition: color 9999s ease-out, background-color 9999s ease-out;
     transition-delay: 9999s;
   }
+
+  @include media-tablet {
+    width: 50%;
+  }
 }
 
 .btn {

@@ -9,14 +9,28 @@
 
 .wrapper {
   display: flex;
+
+  @include media-tablet {
+    flex-direction: column;
+  }
 }
 
 .taskList {
   width: 45%;
-  margin-left: 100px;
+  margin-left: remsize(100);
   margin-right: remsize(200);
+
+  @include media-tablet {
+    width: 80%;
+    margin: remsize(90);
+  }
 }
 
 .authForm {
   width: 40%;
+
+  @include media-tablet {
+    width: 80%;
+    margin: 0 remsize(90);
+  }
 }

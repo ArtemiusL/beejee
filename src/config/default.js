@@ -6,7 +6,7 @@ module.exports = {
   app: {
     htmlAttributes: { lang: 'ru' },
     title: 'Beejee task',
-    titleTemplate: 'Frontend developer!',
+    titleTemplate: 'Tesk task for you!!',
     meta: [
       {
         name: 'description',

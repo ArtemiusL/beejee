@@ -28,10 +28,12 @@ class Text extends PureComponent {
     const { id, onDoubleClick } = this.props;
     const { inputValue } = this.state;
 
-    onDoubleClick({
-      id,
-      text: inputValue,
-    });
+    if (inputValue) {
+      onDoubleClick({
+        id,
+        text: inputValue,
+      });
+    }
 
     this.setState({
       isEditing: false,
