@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
@@ -10,6 +9,15 @@ import styles from './TaskCreater.scss';
 @withCreateTask
 @CSSModules(styles, { allowMultiple: true })
 class TaskCreater extends PureComponent {
+  getFormObjectFromArray = (array) => {
+    const myObj = {};
+    array.forEach((item) => {
+      myObj[item.id] = item.value;
+    });
+
+    return myObj;
+  }
+
   handleSubmit = (evt) => {
     evt.preventDefault();
 
@@ -20,17 +28,8 @@ class TaskCreater extends PureComponent {
     evt.target.reset();
   }
 
-  getFormObjectFromArray = (array) => {
-    const myObj = {};
-    array.forEach((item) => {
-      myObj[item.id] = item.value;
-    })
-
-    return myObj;
-  }
-
   render() {
-    const { className, createTask } = this.props;
+    const { className } = this.props;
 
     return (
       <div className={className} styleName="root">
@@ -70,6 +69,7 @@ class TaskCreater extends PureComponent {
 
 TaskCreater.propTypes = {
   className: PropTypes.string,
+  createTask: PropTypes.func,
 };
 
 

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
@@ -15,6 +14,15 @@ class AuthForm extends PureComponent {
     formError: false,
   };
 
+  getFormObjectFromArray = (array) => {
+    const myObj = {};
+    array.forEach((item) => {
+      myObj[item.id] = item.value;
+    });
+
+    return myObj;
+  }
+
   handleSubmit = (evt) => {
     evt.preventDefault();
 
@@ -27,15 +35,6 @@ class AuthForm extends PureComponent {
         formError: true,
       });
     }
-  }
-
-  getFormObjectFromArray = (array) => {
-    const myObj = {};
-    array.forEach((item) => {
-      myObj[item.id] = item.value;
-    })
-
-    return myObj;
   }
 
   handleFocus = () => {
@@ -99,6 +98,8 @@ class AuthForm extends PureComponent {
 
 AuthForm.propTypes = {
   className: PropTypes.string,
+  isAuth: PropTypes.bool,
+  authUser: PropTypes.func,
 };
 
 

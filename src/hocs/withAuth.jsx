@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { compose, bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { authUser } from '_actions/common';
 import { isAuthSelector } from '_selectors';
 
-const withAuth = WrappedComponent => {
+const withAuth = (WrappedComponent) => {
   class HOC extends Component {
     static propTypes = {
       authUser: PropTypes.func,

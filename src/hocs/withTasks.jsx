@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Component } from 'react';
 import { compose, bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -7,7 +6,7 @@ import { connect } from 'react-redux';
 import { fetchTasks, changePage } from '_actions/tasks';
 import { tasksSelector } from '_selectors/tasks';
 
-const withTasks = WrappedComponent => {
+const withTasks = (WrappedComponent) => {
   class HOC extends Component {
     static propTypes = {
       tasks: PropTypes.object,
@@ -20,15 +19,28 @@ const withTasks = WrappedComponent => {
     }
 
     componentWillReceiveProps(nextProps) {
-      const { tasks: { page, sortDirection, sortField, items } } = this.props;
+      const {
+        tasks: {
+          page,
+          sortDirection,
+          sortField,
+          items,
+        },
+      } = this.props;
 
-      const { tasks: { page: newPage, sortDirection: newSortDirection, sortField: newSortField } } = nextProps;
+      const {
+        tasks: {
+          page: newPage,
+          sortDirection: newSortDirection,
+          sortField: newSortField,
+        },
+      } = nextProps;
 
       if (
         items.length > 0 &&
-        newPage !== page ||
+        (newPage !== page ||
         newSortDirection !== sortDirection ||
-        newSortField !== sortField
+        newSortField !== sortField)
       ) {
         this.props.fetchTasks();
       }

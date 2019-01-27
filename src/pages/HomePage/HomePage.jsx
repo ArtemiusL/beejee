@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import CSSModules from 'react-css-modules';

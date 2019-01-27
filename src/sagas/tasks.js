@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { takeLatest, all, put, call, select } from 'redux-saga/effects';
 
 import { getTasks, createTask, editTask } from '_api/tasks';

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
@@ -12,20 +11,21 @@ const Item = ({
   onClick,
   children,
   isActive,
-}) => {
-  return (
-    <a
-      className={className}
-      styleName={classnames('root', { isActive })}
-      onClick={onClick}
-    >
-      {children}
-    </a>
-  );
-};
+}) => (
+  <span
+    clspanssName={className}
+    styleName={classnames('root', { isActive })}
+    onClick={onClick}
+  >
+    {children}
+  </span>
+);
 
 Item.propTypes = {
-  value: PropTypes.number,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.any,
+  isActive: PropTypes.bool,
 };
 
-export default CSSModules(Item, styles, { allowMultiple: true } );
+export default CSSModules(Item, styles, { allowMultiple: true });

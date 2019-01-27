@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { compose, bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { editTask } from '_actions/tasks';
 
-const withEditTask = WrappedComponent => {
+const withEditTask = (WrappedComponent) => {
   class HOC extends Component {
     static propTypes = {
       editTask: PropTypes.func,
@@ -25,10 +25,6 @@ const withEditTask = WrappedComponent => {
 
   return HOC;
 };
-
-// const mapStateToProps = state => ({
-//   tasks: tasksSelector(state),
-// });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({

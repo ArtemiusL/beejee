@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-alert */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
@@ -11,7 +11,7 @@ import styles from './Text.scss';
 class Text extends PureComponent {
   state = {
     isEditing: false,
-    inputValue: ''
+    inputValue: '',
   };
 
   handleDoubleClick = () => {
@@ -75,11 +75,15 @@ class Text extends PureComponent {
         {value}
       </div>
     );
-  };
+  }
 }
 
 Text.propTypes = {
   className: PropTypes.string,
+  id: PropTypes.number,
+  isAuth: PropTypes.bool,
+  onDoubleClick: PropTypes.func,
+  value: PropTypes.string,
 };
 
 export default Text;

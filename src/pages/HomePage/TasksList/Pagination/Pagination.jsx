@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
@@ -21,9 +20,11 @@ class Pagination extends PureComponent {
 
     const paginationArr = [];
     const correctStart = currentPage === 1 ? 2 : currentPage;
-    const checkOnLast = correctStart >= lastPage - PAGINATION_COUNT ? lastPage - PAGINATION_COUNT : correctStart;
+    const checkOnLast = correctStart >= lastPage - PAGINATION_COUNT ?
+      lastPage - PAGINATION_COUNT :
+      correctStart;
 
-    for (let index = checkOnLast; index < PAGINATION_COUNT + checkOnLast; index++) {
+    for (let index = checkOnLast; index < PAGINATION_COUNT + checkOnLast; index += 1) {
       paginationArr.push(index);
     }
 
@@ -53,12 +54,12 @@ class Pagination extends PureComponent {
     return (
       <div className={className} styleName="root">
         <Item
-          onClick={() => { this.handleClick(1) }}
+          onClick={() => { this.handleClick(1); }}
         >
           {String(1)}
         </Item>
         <Item
-          onClick={() => { this.handleClick(currentPage - 1) }}
+          onClick={() => { this.handleClick(currentPage - 1); }}
         >
           <SimpleArrow
             duration="left"
@@ -69,20 +70,20 @@ class Pagination extends PureComponent {
           <Item
             key={item}
             isActive={currentPage === item}
-            onClick={() => { this.handleClick(item) }}
+            onClick={() => { this.handleClick(item); }}
           >
             {String(item)}
           </Item>
         ))}
         <Item
-          onClick={() => { this.handleClick(currentPage + 1) }}
+          onClick={() => { this.handleClick(currentPage + 1); }}
         >
           <SimpleArrow
             size="small"
           />
         </Item>
         <Item
-          onClick={() => { this.handleClick(lastPage) }}
+          onClick={() => { this.handleClick(lastPage); }}
         >
           {String(lastPage)}
         </Item>
@@ -93,6 +94,9 @@ class Pagination extends PureComponent {
 
 Pagination.propTypes = {
   className: PropTypes.string,
+  currentPage: PropTypes.number,
+  taskCount: PropTypes.number,
+  changePage: PropTypes.func,
 };
 
 

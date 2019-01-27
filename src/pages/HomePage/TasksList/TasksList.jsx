@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
@@ -20,14 +19,17 @@ class TasksList extends PureComponent {
   handleTextDoubleClick = (params) => {
     const { editTask } = this.props;
 
-    console.log('работает');
     editTask(params);
   }
 
   render() {
     const {
       className,
-      tasks: { items, page, taskCount },
+      tasks: {
+        items,
+        page,
+        taskCount,
+      },
       changePage,
       isAuth,
     } = this.props;
@@ -60,6 +62,8 @@ TasksList.propTypes = {
   className: PropTypes.string,
   isAuth: PropTypes.bool,
   editTask: PropTypes.func,
+  changePage: PropTypes.func,
+  tasks: PropTypes.object,
 };
 
 

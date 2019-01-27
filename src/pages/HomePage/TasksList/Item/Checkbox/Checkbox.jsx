@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-alert */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
@@ -10,8 +10,8 @@ import styles from './Checkbox.scss';
 @CSSModules(styles, { allowMultiple: true })
 class Checkbox extends PureComponent {
   handleClick = (evt) => {
-    if (this.props.isAuth) {
-      const { id, onDoubleClick } = this.props;
+    const { isAuth, id, onDoubleClick } = this.props;
+    if (isAuth) {
       const status = evt.target.checked ? 10 : 0;
 
       onDoubleClick({
@@ -25,7 +25,7 @@ class Checkbox extends PureComponent {
   }
 
   render() {
-    const { status, isAuth } = this.props;
+    const { status } = this.props;
 
     return (
       <input
@@ -39,6 +39,9 @@ class Checkbox extends PureComponent {
 
 Checkbox.propTypes = {
   status: PropTypes.number,
+  id: PropTypes.number,
+  isAuth: PropTypes.bool,
+  onDoubleClick: PropTypes.func,
 };
 
 
