@@ -3,4 +3,6 @@ export const SET_TASKS = 'SET_TASKS';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
 export const CREATE_TASK = 'CREATE_TASK';
 export const EDIT_TASK = 'EDIT_TASK';
+export const CHANGE_SORT_FIELD = 'CHANGE_SORT_FIELD';
+export const CHANGE_SORT_DIRECTION = 'CHANGE_SORT_DIRECTION';
 

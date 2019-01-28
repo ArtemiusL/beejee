@@ -3,7 +3,12 @@ import { compose, bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchTasks, changePage } from '_actions/tasks';
+import {
+  fetchTasks,
+  changePage,
+  changeSortField,
+  changeSortDirection,
+} from '_actions/tasks';
 import { tasksSelector } from '_selectors/tasks';
 
 const withTasks = (WrappedComponent) => {
@@ -47,7 +52,7 @@ const withTasks = (WrappedComponent) => {
     }
 
     render() {
-      return this.props.tasks.items ? <WrappedComponent {...this.props} /> : null;
+      return this.props.tasks.items.length > 0 ? <WrappedComponent {...this.props} /> : null;
     }
   }
 
@@ -68,6 +73,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchTasks,
     changePage,
+    changeSortDirection,
+    changeSortField,
   }, dispatch);
 
 export default compose(

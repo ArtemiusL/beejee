@@ -13,7 +13,7 @@ const Item = ({
   isActive,
 }) => (
   <span
-    clspanssName={className}
+    className={className}
     styleName={classnames('root', { isActive })}
     onClick={onClick}
   >

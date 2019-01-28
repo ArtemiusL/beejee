@@ -1,11 +1,16 @@
-import { SET_TASKS, CHANGE_PAGE } from '_actionConstants/tasks';
-import { sortDirections } from '_constants';
+import {
+  SET_TASKS,
+  CHANGE_PAGE,
+  CHANGE_SORT_FIELD,
+  CHANGE_SORT_DIRECTION,
+} from '_actionConstants/tasks';
+import { SortDirections } from '_constants';
 
 const initialState = {
   items: [],
   sortField: '',
   page: 1,
-  sortDirection: sortDirections.asc,
+  sortDirection: SortDirections.asc,
   taskCount: 0,
 };
 
@@ -26,6 +31,18 @@ const tasks = (state = initialState, action) => {
       return {
         ...state,
         page: payload,
+      };
+
+    case CHANGE_SORT_FIELD:
+      return {
+        ...state,
+        sortField: payload,
+      };
+
+    case CHANGE_SORT_DIRECTION:
+      return {
+        ...state,
+        sortDirection: payload,
       };
 
 

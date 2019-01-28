@@ -1,0 +1,41 @@
+@import '~styles/mixins';
+@import '~styles/variables';
+
+.root {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.item {
+  padding: remsize(18);
+  border: 1px solid $color-white;
+  font-size: remsize(26);
+  cursor: pointer;
+
+  &.isActive {
+    background-color: rgba($color-white, 0.2);
+  }
+}
+
+.title {
+  font-size: remsize(24);
+  margin-right: remsize(15);
+  margin-left: remsize(10);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.arrowWrap {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-white;
+  align-self: bottom;
+  padding: remsize(18);
+  cursor: pointer;
+}

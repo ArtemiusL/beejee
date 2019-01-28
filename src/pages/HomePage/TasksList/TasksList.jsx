@@ -8,6 +8,7 @@ import withEditTask from '_hocs/withEditTask';
 
 import Item from './Item';
 import Pagination from './Pagination';
+import Sorting from './Sorting';
 
 import styles from './TasksList.scss';
 
@@ -29,30 +30,43 @@ class TasksList extends PureComponent {
         items,
         page,
         taskCount,
+        sortField,
+        sortDirection,
       },
       changePage,
       isAuth,
+      changeSortDirection,
+      changeSortField,
     } = this.props;
 
+
     return (
-      <div className={className} styleName="root">
-        {items.map(task => (
-          <Item
-            key={task.id}
-            id={task.id}
-            text={task.text}
-            email={task.email}
-            username={task.username}
-            status={task.status}
-            isAuth={isAuth}
-            onDoubleClickText={this.handleTextDoubleClick}
-          />
-        ))}
-        <Pagination
-          currentPage={page}
-          taskCount={taskCount}
-          changePage={changePage}
+      <div className={className}>
+        <Sorting
+          sortDirection={sortDirection}
+          sortField={sortField}
+          changeSortField={changeSortField}
+          changeSortDirection={changeSortDirection}
         />
+        <div styleName="wrapper">
+          {items.map(task => (
+            <Item
+              key={task.id}
+              id={task.id}
+              text={task.text}
+              email={task.email}
+              username={task.username}
+              status={task.status}
+              isAuth={isAuth}
+              onDoubleClickText={this.handleTextDoubleClick}
+            />
+          ))}
+          <Pagination
+            currentPage={page}
+            taskCount={taskCount}
+            changePage={changePage}
+          />
+        </div>
       </div>
     );
   }
@@ -63,6 +77,8 @@ TasksList.propTypes = {
   isAuth: PropTypes.bool,
   editTask: PropTypes.func,
   changePage: PropTypes.func,
+  changeSortField: PropTypes.func,
+  changeSortDirection: PropTypes.func,
   tasks: PropTypes.object,
 };
 

@@ -15,10 +15,16 @@ export const keyCodes = {
   BACKSPACE: 8,
 };
 
-export const sortDirections = {
+export const SortDirections = {
   asc: 'asc',
   desc: 'desc',
 };
+
+export const SortFields = [
+  'username',
+  'email',
+  'status',
+];
 
 export const TASK_PER_PAGE = 3;
 export const IS_AUTH = 'IS_AUTH';

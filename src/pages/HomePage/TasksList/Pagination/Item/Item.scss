@@ -2,10 +2,11 @@
 @import '~styles/variables';
 
 .root {
-  border-right: 1px solid $color-white;
-  text-align: center;
   width: 10%;
   padding: remsize(25) 0;
+  border-right: 1px solid $color-white;
+  text-align: center;
+  font-size: remsize(22);
   cursor: pointer;
   transition: background-color 0.2s ease;
 

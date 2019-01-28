@@ -29,6 +29,7 @@ class Checkbox extends PureComponent {
 
     return (
       <input
+        styleName="root"
         type="checkbox"
         defaultChecked={Boolean(status)}
         onClick={this.handleClick}

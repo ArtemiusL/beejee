@@ -4,6 +4,8 @@ import {
   CHANGE_PAGE,
   CREATE_TASK,
   EDIT_TASK,
+  CHANGE_SORT_FIELD,
+  CHANGE_SORT_DIRECTION,
 } from './constants/tasks';
 
 export const fetchTasks = () => ({
@@ -17,6 +19,16 @@ export const setTasks = payload => ({
 
 export const changePage = payload => ({
   type: CHANGE_PAGE,
+  payload,
+});
+
+export const changeSortField = payload => ({
+  type: CHANGE_SORT_FIELD,
+  payload,
+});
+
+export const changeSortDirection = payload => ({
+  type: CHANGE_SORT_DIRECTION,
   payload,
 });
 

@@ -3,15 +3,16 @@
 
 .root {
   display: inline-block;
+  cursor: pointer;
 }
 
 .input {
   width: 50%;
   border-bottom: 1px solid rgba($color-white, 0.6);
+  background-color: $color-white;
   font-size: remsize(34);
   line-height: 1.1;
-  color: #000;
-  background-color: #fff;
+  color: $color-black;
 
   &:focus {
     border-bottom: 1px solid rgba($color-white, 1);
