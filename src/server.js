@@ -23,7 +23,7 @@ const app = express();
 
 // Compress all requests
 app.use(compression());
-//test commit
+
 // Use for http request debug (show errors only)
 app.use(morgan('dev', { skip: (req, res) => res.statusCode < 400 }));
 
